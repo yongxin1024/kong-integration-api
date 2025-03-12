@@ -1,0 +1,5 @@
+com\example\kongintegrationapi\controller\BookController.class
+com\example\kongintegrationapi\model\Book.class
+com\example\kongintegrationapi\service\BookService.class
+com\example\kongintegrationapi\KongIntegrationApiApplication.class
+com\example\kongintegrationapi\repository\BookRepository.class
