@@ -1,0 +1,22 @@
+### get book with id 1
+GET http://localhost:8000/api/v1/books/1
+Accept: application/json
+
+### list books
+GET http://localhost:8000/api/v1/books
+Accept: application/json
+
+### add book
+POST http://localhost:8000/api/v1/books
+Content-Type: application/json
+
+{
+    "title": "DeepSeek 使用指北",
+    "author": "小刘",
+    "isbn": "for testing"
+}
+
+### list books, jwt enabled
+GET http://localhost:8000/api/v1/books
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJCb29rS2V5IiwiZXhwIjoxNzQyNDQ4NjAwfQ.ExEosVQkUwUQWgSr-xMpoYcytGvZ-yUi45uOqajsAPQ
