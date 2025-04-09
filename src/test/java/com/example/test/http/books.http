@@ -1,3 +1,13 @@
+### add book
+POST http://localhost:8090/api/v1/books
+Content-Type: application/json
+
+{
+  "title": "DeepSeek 使用指北",
+  "author": "小刘",
+  "isbn": "for testing"
+}
+
 ### get book with id 1
 GET http://localhost:8090/api/v1/books/1
 Accept: application/json
@@ -6,12 +16,3 @@ Accept: application/json
 GET http://localhost:8090/api/v1/books
 Accept: application/json
 
-### add book
-POST http://localhost:8090/api/v1/books
-Content-Type: application/json
-
-{
-    "title": "DeepSeek 使用指北",
-    "author": "小刘",
-    "isbn": "for testing"
-}

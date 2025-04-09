@@ -1,3 +1,13 @@
+### add book
+POST http://localhost:8000/api/v1/books
+Content-Type: application/json
+
+{
+  "title": "DeepSeek 使用指北",
+  "author": "小刘",
+  "isbn": "for testing"
+}
+
 ### get book with id 1
 GET http://localhost:8000/api/v1/books/1
 Accept: application/json
@@ -6,17 +16,42 @@ Accept: application/json
 GET http://localhost:8000/api/v1/books
 Accept: application/json
 
-### add book
-POST http://localhost:8000/api/v1/books
-Content-Type: application/json
-
-{
-    "title": "DeepSeek 使用指北",
-    "author": "小刘",
-    "isbn": "for testing"
-}
-
 ### list books, jwt enabled
 GET http://localhost:8000/api/v1/books
 Accept: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJCb29rS2V5IiwiZXhwIjoxNzQyNDQ4NjAwfQ.ExEosVQkUwUQWgSr-xMpoYcytGvZ-yUi45uOqajsAPQ
+
+### list books, Basic Authentication enabled
+### admin:admin -> Base64  -> YWRtaW46YWRtaW4=
+GET http://localhost:8000/api/v1/books
+Accept: application/json
+Authorization: Basic YWRtaW46YWRtaW4=
+
+### and other plugins export it your self.
+### ...
+
+
+### Bot Detection enabled, blocked
+GET http://localhost:8000/api/v1/books/1
+Accept: application/json
+
+### with UA, passed
+GET http://localhost:8000/api/v1/books/1
+Accept: application/json
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+
+
+
+### Rate limit, allowing 1 request per second: API rate limit exceeded
+### python C:\WorkSpace\TRAE\kong-integration-api\src\test\java\com\example\test\http\rate_limit_test.py
+GET http://localhost:8000/api/v1/books/1
+Accept: application/json
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+
+### Request Termination enabled, 503 Service Temporarily Unavailable
+GET http://localhost:8000/api/v1/books/1
+Accept: application/json
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+
+
+

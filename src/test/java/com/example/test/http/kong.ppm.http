@@ -1,0 +1,17 @@
+### Get Request Details
+GET http://ppm202520:8080/itg/rest2/dm/requests/30904
+Authorization: Basic YWRtaW46YWRtaW4=
+accept: application/json
+
+### Get Request Details， clocked as Bot Detection enabled
+GET http://localhost:8000/itg/rest2/dm/requests/30904
+Authorization: Basic YWRtaW46YWRtaW4=
+accept: application/json
+
+
+### Get Request Details
+GET http://localhost:8000/itg/rest2/dm/requests/30904
+Authorization: Basic YWRtaW46YWRtaW4=
+accept: application/json
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+
