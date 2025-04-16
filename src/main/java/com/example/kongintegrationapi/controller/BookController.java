@@ -2,10 +2,11 @@ package com.example.kongintegrationapi.controller;
 
 import com.example.kongintegrationapi.model.Book;
 import com.example.kongintegrationapi.service.BookService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import java.util.Enumeration;
 import java.util.List;
 
 @RestController
@@ -25,9 +26,25 @@ public class BookController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Book> getBookById(@PathVariable Long id) {
+    public ResponseEntity<Book> getBookById(@PathVariable Long id, HttpServletRequest request) {
+        printRequestHeaders(request);
         return bookService.getBookById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
+
+    /**
+     * How to identify the identity of the end users?
+     * Using the JWT plugin as an example, the JWT plugin will by default inject headers such as X-Consumer-Username and X-Consumer-Custom-ID into the request.
+     * @param request
+     */
+    public void printRequestHeaders(HttpServletRequest request) {
+        Enumeration<String> headerNames = request.getHeaderNames();
+        while (headerNames.hasMoreElements()) {
+            String headerName = headerNames.nextElement();
+            String headerValue = request.getHeader(headerName);
+            System.out.println(headerName + ": " + headerValue);
+        }
+    }
+
 }

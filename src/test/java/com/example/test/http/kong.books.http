@@ -19,7 +19,12 @@ Accept: application/json
 ### list books, jwt enabled
 GET http://localhost:8000/api/v1/books
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDQ3ODQ0NDAsImlzcyI6IkJvb2tLZXkifQ.RiHt4TRMBqgasl2O-HbUIlj4TZvTv_NzvWBus2s4e-E
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDQ3ODk5MzcsImlzcyI6IkJvb2tLZXkifQ.6J3djwHAFXYa91J_cb5t3EujKMNv00ysl70-F7cRYec
+
+### get book with id 1, jwt enabled
+GET http://localhost:8000/api/v1/books/1
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDQ3ODk5MzcsImlzcyI6IkJvb2tLZXkifQ.6J3djwHAFXYa91J_cb5t3EujKMNv00ysl70-F7cRYec
 
 ### list books, Basic Authentication enabled
 ### admin:admin -> Base64  -> YWRtaW46YWRtaW4=
