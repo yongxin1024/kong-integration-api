@@ -52,3 +52,34 @@ fix:
 kong的gateway配置host使用`host.docker.internal` 即可
 ![img_2.png](images%2Fimg_2.png)
 
+## You must use HTTPS
+```json
+{
+  "error": "access_denied",
+  "error_description": "You must use HTTPS"
+}
+```
+
+你需要：
+为 Kong 配置 HTTPS 证书（比如用自签名证书）
+启用 https 监听端口（通常是 8443 或 443）
+
+1. 生成证书
+```bash
+mkdir -p ~/kong-certs
+cd ~/kong-certs
+
+openssl req -x509 -newkey rsa:2048 -nodes -keyout kong.key -out kong.crt -days 365 \
+  -subj "/CN=localhost"
+
+```
+2. 配置 Kong 使用证书，Docker Compose 支持直接加证书挂载
+```yml
+#...
+volumes:
+  - ./kong-certs:/etc/kong/certs
+environment:
+  #...
+  KONG_SSL_CERT: /etc/kong/certs/kong.crt
+  KONG_SSL_CERT_KEY: /etc/kong/certs/kong.key
+```

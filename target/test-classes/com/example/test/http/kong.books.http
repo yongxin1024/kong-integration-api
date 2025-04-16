@@ -3,9 +3,9 @@ POST http://localhost:8000/api/v1/books
 Content-Type: application/json
 
 {
-  "title": "地球往事I：三体",
-  "author": "刘慈欣",
-  "isbn": "978-7-5366-9293-0"
+  "title": "DeepSeek 使用指北",
+  "author": "小刘",
+  "isbn": "for testing"
 }
 
 ### get book with id 1
@@ -19,7 +19,7 @@ Accept: application/json
 ### list books, jwt enabled
 GET http://localhost:8000/api/v1/books
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDQ3ODQ0NDAsImlzcyI6IkJvb2tLZXkifQ.RiHt4TRMBqgasl2O-HbUIlj4TZvTv_NzvWBus2s4e-E
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJCb29rS2V5IiwiZXhwIjoxNzQyNDQ4NjAwfQ.ExEosVQkUwUQWgSr-xMpoYcytGvZ-yUi45uOqajsAPQ
 
 ### list books, Basic Authentication enabled
 ### admin:admin -> Base64  -> YWRtaW46YWRtaW4=
@@ -32,12 +32,10 @@ Authorization: Basic dTE6dTE=
 ### admin:admin -> Base64  -> YWRtaW46YWRtaW4=
 GET http://localhost:8000/api/v1/books
 Accept: application/json
-apikey: ppm_test_key
+apikey: YWRtaW46YWRtaW4=
 
-### list books, Auth2.0 enabled
-GET http://localhost:8000/api/v1/books
-Accept: application/json
-Authorization: bearer AnAhOub47g2AtosTYiipu3Ab7teazYtI
+### and other plugins export it your self.
+### ...
 
 
 ### Bot Detection enabled, blocked

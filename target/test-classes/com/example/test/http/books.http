@@ -3,9 +3,9 @@ POST http://localhost:8090/api/v1/books
 Content-Type: application/json
 
 {
-  "title": "地球往事I：三体",
-  "author": "刘慈欣",
-  "isbn": "978-7-5366-9293-0"
+  "title": "DeepSeek 使用指北",
+  "author": "小刘",
+  "isbn": "for testing"
 }
 
 ### get book with id 1
